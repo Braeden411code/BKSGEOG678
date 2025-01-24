@@ -1,10 +1,12 @@
 <!DOCTYPE html>
- <html>
-  <body>
+<html>
+<head>
+  <title>Document Title</title>
+</head>
+<body>
 
-   <h1>my first heading</h1>
+  <h1>My First Heading</h1>
+  <p>My First Paragraph</p>
 
-   <p>my first paragraph</p>
-
- <html>
-  <body>
+</body>
+</html>
