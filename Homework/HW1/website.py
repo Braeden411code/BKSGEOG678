@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Document Title</title>
+ 
+<body>
+  <h1>My Fruit Shop</h1>
+  <div>
+ 
 </head>
 <body>
 
-  <h1>My First Heading</h1>
+  <h2>My First Heading</h2>
   <p>My First Paragraph</p>
 
 </body>
