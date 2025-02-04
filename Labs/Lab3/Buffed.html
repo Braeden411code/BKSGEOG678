@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Braeden's Resume</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        /* Sections */
+        .section {
+            background-color: gainsboro;
+            padding: 15px;
+            margin: 10px auto;
+            width: 60%;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        h1, h2 {
+            color: #333;
+            text-align: center;
+        }
+
+        /* Texas A&M Logo */
+        .logo-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .logo {
+            width: 200px;
+            height: auto;
+        }
+
+        /* Resume Links */
+        .resume-table {
+            width: 60%;
+            margin: 10px auto;
+            background-color: lightgoldenrodyellow;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Styled Buttons for Resume Links */
+        .resume-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: white;
+            background-color: maroon;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .resume-btn:hover {
+            background-color: darkred;
+        }
+
+        /* Experience Section */
+        .experience {
+            background-color: lightgray;
+            padding: 15px;
+            width: 60%;
+            margin: 10px auto;
+            border-radius: 8px;
+            text-align: left;
+        }
+
+        /* Skills Section */
+        .skills {
+            font-weight: bold;
+            font-style: italic;
+            color: #333;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Contact & Education Colors */
+        .edu-texas {
+            color: maroon;
+            font-weight: bold;
+        }
+
+        .edu-highschool {
+            color: goldenrod;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section, .resume-table, .experience {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Texas A&M Logo -->
+    <div class="logo-container">
+        <img src="https://brandguide.tamu.edu/assets/img/logos/TAM-PrimaryMark.png" alt="Texas A&M Logo" class="logo">
+    </div>
+
+    <!-- Resume Links -->
+    <div class="resume-table">
+        <h2>Resume & CV</h2>
+        <table>
+            <tr>
+                <th>Resume</th>
+                <th>CV</th>
+            </tr>
+            <tr>
+                <td>
+                    <a href="https://docs.google.com/document/d/1hEc_gnByDfW8Ks15JyQ3HjfOMMAXQAYG/edit?usp=sharing&ouid=110422458569907020240&rtpof=true&sd=true" class="resume-btn" target="_blank">Download Resume</a>
+                </td>
+                <td>
+                    <a href="#" class="resume-btn">Download CV</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <!-- Resume Heading -->
+    <div class="section">
+        <h1>Braeden's Resume</h1>
+        <p>Hi! Welcome to my resume site.</p>
+    </div>
+
+    <!-- Contact Information -->
+    <div class="section">
+        <h2>Contact Information</h2>
+        <ul>
+            <li>Email: <a href="mailto:Braeden2003@tamu.edu">Braeden2003@tamu.edu</a></li>
+            <li>Phone: <a href="tel:+18328379252">832-837-9252</a></li>
+        </ul>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+        <h2>Education</h2>
+        <ul>
+            <li class="edu-texas"><i>Texas A&M University</i></li>
+            <li class="edu-highschool"><i>Cinco Ranch High School</i></li>
+        </ul>
+    </div>
+
+    <!-- Experience Section -->
+    <div class="experience">
+        <h2>Experience</h2>
+
+        <h3><i>TPH&Co - PWP (June - August 2024)</i></h3>
+        <ul>
+            <li>Created maps using ArcPy tools and Excel functions for break-even and TCA visualizations.</li>
+            <li>Developed technical presentation material for pre-marketing documents, pitches, and data room presentations.</li>
+            <li>Conducted spatial analysis on clients’ assets including acreage, wells, rigs, and pipelines.</li>
+            <li>Imported and structured geogrids in Geographix to ArcPro, creating geologic maps.</li>
+            <li>Utilized a Python automated spatial workflow to estimate inventory on a large scale.</li>
+        </ul>
+
+        <h3><i>ESRI (May - August 2023)</i></h3>
+        <ul>
+            <li>Reviewed land development applications and easement requests for potential impacts to city land.</li>
+            <li>Mapped and visualized data to create clear and inclusive displays.</li>
+            <li>Quantified spatial patterns using spatial analysis techniques.</li>
+            <li>Integrated data within and between programs including ArcGIS, ENVI, and Microsoft Excel.</li>
+            <li>Utilized SQL Server and Microsoft applications to optimize processing runtime and data output.</li>
+        </ul>
+    </div>
+
+    <!-- Skills Section -->
+    <p class="skills">Skills: ArcGIS, ArcPro, ArcPy, Enverus, Rextag, Python, ENVI, GPS Surveying, Geospatial Data Management, SQL, Excel, Microsoft Office applications</p>
+
+</body>
+</html>
