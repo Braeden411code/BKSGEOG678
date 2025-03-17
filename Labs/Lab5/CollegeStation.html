@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>YourName First Web Map</title>
 
-    <!-- Leaflet CSS -->
+   
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
         crossorigin=""/>
@@ -24,16 +24,16 @@
 </head>
 <body>
 
-    <!-- Map Container -->
+   
     <div id="map"></div>
 
-    <!-- Leaflet JS -->
+   
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
 
     <script>
-        // Initialize the map
+        
         var map = L.map('map').fitWorld();
 
         // Add OpenStreetMap tile layer
@@ -42,7 +42,7 @@
             maxZoom: 18
         }).addTo(map);
 
-        // 🔵 Zoom to User's Location
+        
         function onLocationFound(e) {
             var radius = e.accuracy / 2;
             L.marker(e.latlng).addTo(map)
@@ -56,7 +56,7 @@
         map.on('locationfound', onLocationFound);
         map.on('locationerror', onLocationError);
 
-        // 🔴 Draw a Circle Around Kyle Field (Coordinates: 30.6101, -96.3398)
+        
         var kyleFieldCircle = L.circle([30.6101, -96.3398], {
             color: 'blue',
             fillColor: '#30f',
@@ -64,7 +64,7 @@
             radius: 300
         }).addTo(map).bindPopup("<b>Kyle Field</b><br>Home of the Texas A&M Aggies!");
 
-        // 🌿 Define Custom Icon Class
+        
         var CustomIcon = L.Icon.extend({
             options: {
                 iconSize: [40, 40],
@@ -73,18 +73,18 @@
             }
         });
 
-        // 🌍 Create Custom Icons (Replace with Correct Image Paths)
+        
         var omIcon = new CustomIcon({ iconUrl: "./Cstat_Data/oandm.jpg" });
         var academicIcon = new CustomIcon({ iconUrl: "./Cstat_Data/Academic.jpg" });
 
-        // 📌 Add Markers for O&M and Academic Building
+        
         L.marker([30.6184, -96.3369], { icon: omIcon }).addTo(map)
             .bindPopup("<b>O&M Building</b><br>Office of the Department of Geography.");
         
         L.marker([30.6122, -96.3410], { icon: academicIcon }).addTo(map)
             .bindPopup("<b>Academic Building</b><br>One of Texas A&M's most historic buildings.");
 
-        // 🖱️ Click Event to Show Coordinates in a Popup
+       
         var popup = L.popup();
         function onMapClick(e) {
             popup.setLatLng(e.latlng)
