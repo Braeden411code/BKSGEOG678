@@ -1,0 +1,100 @@
+<!-- GeoJSON Tutorials -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>GeoJSON Tutorials</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+</head>
+<body>
+    <h1>GeoJSON Tutorials</h1>
+
+    <h2>Basic GeoJSON Feature</h2>
+    <div id="map1" style="height: 500px;"></div>
+    <script>
+        var map1 = L.map('map1').setView([39.75621, -104.99404], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map1);
+
+        var geojsonFeature = {
+            "type": "Feature",
+            "properties": {
+                "name": "Coors Field",
+                "amenity": "Baseball Stadium",
+                "popupContent": "This is where the Rockies play!"
+            },
+            "geometry": {
+                "type": "Point",
+                "coordinates": [-104.99404, 39.75621]
+            }
+        };
+
+        L.geoJSON(geojsonFeature).addTo(map1);
+    </script>
+
+    <h2>Adding Multiple GeoJSON Objects</h2>
+    <div id="map2" style="height: 500px;"></div>
+    <script>
+        var map2 = L.map('map2').setView([40, -105], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map2);
+
+        var myLines = [{
+            "type": "LineString",
+            "coordinates": [[-100, 40], [-105, 45], [-110, 55]]
+        }, {
+            "type": "LineString",
+            "coordinates": [[-105, 40], [-110, 45], [-115, 55]]
+        }];
+
+        L.geoJSON(myLines).addTo(map2);
+    </script>
+
+    <h2>Styling GeoJSON Layers</h2>
+    <div id="map3" style="height: 500px;"></div>
+    <script>
+        var map3 = L.map('map3').setView([40, -105], 5);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map3);
+
+        var myStyle = {
+            "color": "#ff7800",
+            "weight": 5,
+            "opacity": 0.65
+        };
+
+        L.geoJSON(myLines, {
+            style: myStyle
+        }).addTo(map3);
+    </script>
+
+    <h2>Using pointToLayer for Custom Markers</h2>
+    <div id="map4" style="height: 500px;"></div>
+    <script>
+        var map4 = L.map('map4').setView([39.75621, -104.99404], 13);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map4);
+
+        var geojsonMarkerOptions = {
+            radius: 8,
+            fillColor: "#ff7800",
+            color: "#000",
+            weight: 1,
+            opacity: 1,
+            fillOpacity: 0.8
+        };
+
+        L.geoJSON(geojsonFeature, {
+            pointToLayer: function (feature, latlng) {
+                return L.circleMarker(latlng, geojsonMarkerOptions);
+            }
+        }).addTo(map4);
+    </script>
+</body>
+</html>
