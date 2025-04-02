@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>D3.js Temperature Chart</title>
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+  <style>
+    svg {
+      font: 12px sans-serif;
+    }
+    .line {
+      fill: none;
+      stroke-width: 2.5px;
+    }
+    .high {
+      stroke: steelblue;
+    }
+    .low {
+      stroke: tomato;
+    }
+  </style>
+</head>
+<body>
+  <h2>College Station Weekly Temperature Forecast</h2>
+  <svg width="800" height="400"></svg>
+
+  <script>
+    const data = [
+      { day: "Sat", high: 82, low: 67 },
+      { day: "Sun", high: 81, low: 59 },
+      { day: "Mon", high: 81, low: 50 },
+      { day: "Tue", high: 70, low: 47 },
+      { day: "Wed", high: 77, low: 51 },
+      { day: "Thu", high: 78, low: 60 },
+      { day: "Fri", high: 79, low: 66 },
+      { day: "Sat", high: 80, low: 66 },
+    ];
+
+    const margin = { top: 30, right: 40, bottom: 40, left: 50 },
+          width = 800 - margin.left - margin.right,
+          height = 400 - margin.top - margin.bottom;
+
+    const svg = d3.select("svg")
+      .append("g")
+      .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scalePoint()
+      .domain(data.map(d => d.day))
+      .range([0, width]);
+
+    const y = d3.scaleLinear()
+      .domain([40, d3.max(data, d => d.high) + 5])
+      .range([height, 0]);
+
+    svg.append("g")
+      .attr("transform", `translate(0,${height})`)
+      .call(d3.axisBottom(x));
+
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+    const line = d3.line()
+      .x(d => x(d.day))
+      .y(d => y(d.value));
+
+    svg.append("path")
+      .datum(data.map(d => ({ day: d.day, value: d.high })))
+      .attr("class", "line high")
+      .attr("d", line);
+
+    svg.append("path")
+      .datum(data.map(d => ({ day: d.day, value: d.low })))
+      .attr("class", "line low")
+      .attr("d", line);
+  </script>
+</body>
+</html>
